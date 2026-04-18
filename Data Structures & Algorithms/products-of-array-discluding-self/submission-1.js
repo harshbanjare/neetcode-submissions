@@ -1,0 +1,22 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @return {number[]}
+     */
+    productExceptSelf(nums) {
+     let prefixProduct = 1;
+     let suffixProduct = 1;
+     const result = []
+     for(let i = 0; i < nums.length; i++){
+        result[i] = prefixProduct;
+        prefixProduct *= nums[i]
+     }
+
+     for(let i = nums.length -1; i >= 0; i--){
+        result[i] *= suffixProduct;
+        suffixProduct *= nums[i]
+     }
+
+     return result;
+    }
+}
